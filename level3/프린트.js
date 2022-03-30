@@ -27,14 +27,14 @@ priorities	location	return
 
 6개의 문서(A, B, C, D, E, F)가 인쇄 대기목록에 있고 중요도가 1 1 9 1 1 1 이므로 C D E F A B 순으로 인쇄합니다.
 */
+
 function solution(priorities, location) {
     let answer = 0;
 	const docu = priorities.map((v, idx) => idx)
     const my = docu[location]
     const wait = [...docu]
-    const print = []
-    
-	function printDocu(arr) {
+    const print = []    
+    function printDocu(arr) {
 		for (let i = 0; i < arr.length; i++) {
           if (arr.some((v, idx) => priorities[docu.indexOf(v)] > priorities[docu.indexOf(arr[i])])) {
           	const firstItem = wait.shift();
