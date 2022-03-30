@@ -30,10 +30,10 @@ priorities	location	return
 
 function solution(priorities, location) {
     let answer = 0;
-	const docu = priorities.map((v, idx) => idx)
-    const my = docu[location]
-    const wait = [...docu]
-    const print = []    
+    const docu = priorities.map((v, idx) => idx);
+    const my = docu[location];
+    const wait = [...docu];
+    const print = [];
     function printDocu(arr) {
         for (let i = 0; i < arr.length; i++) {
             if (arr.some((v, idx) => priorities[docu.indexOf(v)] > priorities[docu.indexOf(arr[i])])) {
@@ -48,8 +48,8 @@ function solution(priorities, location) {
         }
         return wait.length > 0 ? printDocu(wait) : false
     }
-    printDocu(wait)
-    answer = print.indexOf(my) + 1
+    printDocu(wait);
+    answer = print.indexOf(my) + 1;
     return answer;
 }
 
