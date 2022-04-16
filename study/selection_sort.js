@@ -4,11 +4,12 @@
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 // arr = [1, 10, 5, 8, 7, 6, 4, 3, 2, 9, 11, 15, 13, 14, 12, 19, 18, 17, 15, 25];
+arr = [5, 5, 2, 3, 4, 1]
 
 function selectSort(data) {
     let min, index, temp;
     for (let i = 0; i < data.length; i++) {
-        min = 9999;
+        min = 1001;
         for (let j = i; j < data.length; j++) {
             if (min > data[j]) {
                 min = data[j]
