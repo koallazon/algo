@@ -32,17 +32,14 @@
 const readFileSyncAddr = './1436_index.txt'
 const input = require('fs').readFileSync(readFileSyncAddr).toString().trim();
 let N = parseInt(input, 10);
-let title = 666;
+let title = 665;
+let count = 0;
 
-while(N >= 0) {
-    if (!/666/.test(String(title))) {
-        title++;
+while (count != N) {
+    title++;
+    if (String(title).includes('666')) {
+        count++;
     }
-    N--;
 }
 
-
-console.time()
 console.log(title)
-console.timeEnd()
-// console.log(input)
