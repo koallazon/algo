@@ -25,20 +25,42 @@ N과 M은 8보다 크거나 같고, 50보다 작거나 같은 자연수이다.
 
 // 50 >= N >= 0, N >= M
 // B: Black, W: White
+// 제출용
+// const readFileSyncAddr = '/dev/stdin'
 
-let input = `8 8
-WBWBWBWB
-BWBWBWBW
-WBWBWBWB
-BWBBBWBW
-WBWBWBWB
-BWBWBWBW
-WBWBWBWB
-BWBWBWBW`
+// 테스트용
+const readFileSyncAddr = './1018_index.txt'
+const input = require('fs').readFileSync(readFileSyncAddr).toString().trim();
 
-input = input.toString().trim().split('\n')
-const [N, M] = input.shift().split(/\s/).map(v => +v)
-input = input.map(v => Array.from(v))
-console.log(input)
+
+[size, ...arr] = input.split('\n');
+[N, M] = size.split(/\s/).map(v => +v);
+arr = arr.map(v => Array.from(v));
+const minArr = [];
+const line = ['WBWBWBWB', 'BWBWBWBW'];
+for(let i = 0; i <= N - 8; i++) {
+    for(let j = 0; j <= M - 8; j++) {
+
+        for(let k = 0; k < 2; k++) { // 시작하는 색상에 대한 반복문
+            let count = 0;
+            
+            for(let x = 0; x < 8; x++) {
+                for(let y = 0; y < 8; y++) {
+                    const current = arr[i + x][j + y];
+                    if (current !== line[(x + k) % 2][y]) {
+                        count++
+                    }
+                }
+            }
+
+            minArr.push(count)
+        }
+    }
+}
+
+console.time()
+console.log(Math.min(...minArr))
+console.timeEnd()
+// console.log(input)
 
 
