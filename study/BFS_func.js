@@ -20,7 +20,6 @@ const BFS = (graph, start) => {
     let needVisit = [] // 탐색해야할 노드들
     
     needVisit.push(start)
-
     while(needVisit.length !== 0) { // 탐색할 노드가 남아있는 경우
         const node = needVisit.shift()
         if (!visited.includes(node)) {
